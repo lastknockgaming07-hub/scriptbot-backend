@@ -504,7 +504,7 @@ Make it niche-specific, voice-matched, COMPLETE with resolution, ORIGINAL, and 1
 
     // Version A with retry
     const resultA = await callAnthropicWithRetry({
-      model: "claude-opus-4-5",
+      model: "claude-sonnet-4-5",
       max_tokens: 5000,
       temperature: 1.0,
       system: promptA,
@@ -523,7 +523,7 @@ Make it niche-specific, voice-matched, COMPLETE with resolution, ORIGINAL, and 1
     if (generateAB) {
       const promptB = buildSystemPrompt(opts, 'B');
       const resultB = await callAnthropicWithRetry({
-        model: "claude-opus-4-5",
+        model: "claude-sonnet-4-5",
         max_tokens: 5000,
         temperature: 1.0,
         system: promptB,
@@ -549,7 +549,7 @@ app.post("/edit", async (req, res) => {
   const { script, instruction } = req.body;
   try {
     const result = await callAnthropicWithRetry({
-      model: "claude-opus-4-5",
+      model: "claude-sonnet-4-5",
       max_tokens: 5000,
       temperature: 0.9,
       system: "You are ScriptBot, an elite content editor for Indian creators. Edit the script based on instruction. Keep ALL section headers intact (MAIN SCRIPT, HOOK QUALITY SCORE, HOOK VARIATIONS, SHOT SUGGESTIONS, CAPTION AND HASHTAGS, TRENDING AUDIO SUGGESTIONS, THUMBNAIL COVER FRAME IDEAS, GEAR AND PRODUCTION CHECKLIST, PERFORMANCE IMPROVEMENTS, EXTRA IDEAS). Keep [time] SECTION format and SPEAKER/VISUAL/AUDIO/ON-SCREEN TEXT/SPEAKER TONE labels. Avoid clichés. Ensure complete ending. Update HOOK QUALITY SCORE. CRITICAL: Maintain NATIVE language quality — Hindi/Hinglish must sound like real creator speech, not translation. Return FULL package in plain text, no emojis, no markdown.",
@@ -570,10 +570,10 @@ app.post("/edit", async (req, res) => {
 });
 
 app.get("/", (req, res) => {
-  res.send("ScriptBot backend v4.2 (Auto-Retry) is running!");
+  res.send("ScriptBot backend v4.3 (Sonnet + Auto-Retry) is running!");
 });
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, "0.0.0.0", () => {
-  console.log("ScriptBot server v4.2 (Auto-Retry) running on port " + PORT);
+  console.log("ScriptBot server v4.3 (Sonnet + Auto-Retry) running on port " + PORT);
 });
