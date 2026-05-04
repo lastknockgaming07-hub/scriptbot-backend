@@ -310,16 +310,24 @@ Random seed: ${Math.random().toString(36).slice(2, 10).toUpperCase()}
   let formatSection = '';
   if (useVisual) {
     formatSection = `SCREENPLAY FORMAT (mandatory):
-For each timestamp use EXACTLY:
+For each timestamp use EXACTLY this label structure (don't add new labels, but make each one DENSE and SPECIFIC):
 
 [0-2s] HOOK
-SPEAKER: ${speaker ? '(specific character name)' : '(name or describe)'}
-VISUAL: (specific detailed shot — NOT cliché)
-AUDIO: (exact words spoken in the creator's voice style — in NATIVE ${lang})
-ON-SCREEN TEXT: (text overlay, or "None")
-SPEAKER TONE: (specific delivery direction)
+SPEAKER: (specific character with concrete details — age, wardrobe, posture, energy. Example: "Rohan, 19, oversized hoodie, sitting cross-legged on unmade bed, laptop on lap")
+VISUAL: (DENSE shot description with: location detail + lighting + camera move + character action. Example: "Cluttered teenage bedroom, golden hour light through half-closed blinds. Push-in from medium to close-up, slight handheld shake. He looks up suddenly from screen, eyes widening." NEVER vague like "Boy looks at camera")
+AUDIO: (exact words in NATIVE ${lang} + ambient sound layer. Example: "Bhai... yeh real hai? [pause, holds phone toward camera]" + note any music/sound design like "Faint laptop fan hum. NO music yet — saves drop for beat 2")
+ON-SCREEN TEXT: (specific text + animation note if any, or "None". Example: "₹50,247 in 30 days — appears with subtle counter-up animation")
+SPEAKER TONE: (specific delivery — emotional beat + subtext. Example: "Genuinely surprised, slightly conspiratorial. Subtext: he's still in shock himself, wants viewer to share his disbelief")
 
-Use section names: HOOK, SETUP, CONTEXT, BUILD, TENSION, TWIST, REVEAL, PAYOFF, RESOLUTION, CTA`;
+DENSITY RULES (CRITICAL):
+- VISUAL must include: location specific + lighting + camera move + character action — never just "boy looks at camera"
+- SPEAKER must include character traits: age + wardrobe + posture + energy
+- AUDIO must include ambient/sound design notes alongside dialogue (silence is also a choice)
+- SPEAKER TONE must include subtext — what they MEAN beneath what they SAY
+- Use specific concrete details: real time of day, real wardrobe, real prop, real number — not vague placeholders
+- Each scene should feel like a real creator + DOP planned it together
+
+Use section names from this list: HOOK, SETUP, CONTEXT, BUILD, TENSION, TWIST, REVEAL, PAYOFF, RESOLUTION, CTA`;
   }
 
   let continueSection = '';
@@ -505,7 +513,7 @@ Make it niche-specific, voice-matched, COMPLETE with resolution, ORIGINAL, and 1
     // Version A with retry
     const resultA = await callAnthropicWithRetry({
       model: "claude-sonnet-4-5",
-      max_tokens: 5000,
+      max_tokens: 6500,
       temperature: 1.0,
       system: promptA,
       messages: [{ role: "user", content: userMsg }]
@@ -524,7 +532,7 @@ Make it niche-specific, voice-matched, COMPLETE with resolution, ORIGINAL, and 1
       const promptB = buildSystemPrompt(opts, 'B');
       const resultB = await callAnthropicWithRetry({
         model: "claude-sonnet-4-5",
-        max_tokens: 5000,
+        max_tokens: 6500,
         temperature: 1.0,
         system: promptB,
         messages: [{ role: "user", content: userMsg + '\n\nThis is Version B — must be a COMPLETELY DIFFERENT take from typical approach. Different opening, different structure, different angle. Same NATIVE language quality.' }]
@@ -550,7 +558,7 @@ app.post("/edit", async (req, res) => {
   try {
     const result = await callAnthropicWithRetry({
       model: "claude-sonnet-4-5",
-      max_tokens: 5000,
+      max_tokens: 6500,
       temperature: 0.9,
       system: "You are ScriptBot, an elite content editor for Indian creators. Edit the script based on instruction. Keep ALL section headers intact (MAIN SCRIPT, HOOK QUALITY SCORE, HOOK VARIATIONS, SHOT SUGGESTIONS, CAPTION AND HASHTAGS, TRENDING AUDIO SUGGESTIONS, THUMBNAIL COVER FRAME IDEAS, GEAR AND PRODUCTION CHECKLIST, PERFORMANCE IMPROVEMENTS, EXTRA IDEAS). Keep [time] SECTION format and SPEAKER/VISUAL/AUDIO/ON-SCREEN TEXT/SPEAKER TONE labels. Avoid clichés. Ensure complete ending. Update HOOK QUALITY SCORE. CRITICAL: Maintain NATIVE language quality — Hindi/Hinglish must sound like real creator speech, not translation. Return FULL package in plain text, no emojis, no markdown.",
       messages: [{ role: "user", content: `Original:\n${script}\n\nInstruction: ${instruction}` }]
@@ -570,10 +578,10 @@ app.post("/edit", async (req, res) => {
 });
 
 app.get("/", (req, res) => {
-  res.send("ScriptBot backend v4.3 (Sonnet + Auto-Retry) is running!");
+  res.send("ScriptBot backend v4.4 (Production Density) is running!");
 });
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, "0.0.0.0", () => {
-  console.log("ScriptBot server v4.3 (Sonnet + Auto-Retry) running on port " + PORT);
+  console.log("ScriptBot server v4.4 (Production Density) running on port " + PORT);
 });
