@@ -310,24 +310,71 @@ Random seed: ${Math.random().toString(36).slice(2, 10).toUpperCase()}
   let formatSection = '';
   if (useVisual) {
     formatSection = `SCREENPLAY FORMAT (mandatory):
-For each timestamp use EXACTLY this label structure (don't add new labels, but make each one DENSE and SPECIFIC):
 
-[0-2s] HOOK
-SPEAKER: (specific character with concrete details — age, wardrobe, posture, energy. Example: "Rohan, 19, oversized hoodie, sitting cross-legged on unmade bed, laptop on lap")
-VISUAL: (DENSE shot description with: location detail + lighting + camera move + character action. Example: "Cluttered teenage bedroom, golden hour light through half-closed blinds. Push-in from medium to close-up, slight handheld shake. He looks up suddenly from screen, eyes widening." NEVER vague like "Boy looks at camera")
-AUDIO: (exact words in NATIVE ${lang} + ambient sound layer. Example: "Bhai... yeh real hai? [pause, holds phone toward camera]" + note any music/sound design like "Faint laptop fan hum. NO music yet — saves drop for beat 2")
-ON-SCREEN TEXT: (specific text + animation note if any, or "None". Example: "₹50,247 in 30 days — appears with subtle counter-up animation")
-SPEAKER TONE: (specific delivery — emotional beat + subtext. Example: "Genuinely surprised, slightly conspiratorial. Subtext: he's still in shock himself, wants viewer to share his disbelief")
+═══════════════════════════════════════════════════════════
+THE VIRAL STRUCTURE — ALL SCRIPTS MUST FOLLOW THIS EXACT ARC
+═══════════════════════════════════════════════════════════
 
-DENSITY RULES (CRITICAL):
-- VISUAL must include: location specific + lighting + camera move + character action — never just "boy looks at camera"
+Every script breaks into 5 functional zones. Label each zone clearly.
+The viewer's brain experiences this journey:
+
+1. HOOK (0-3s) — Stop the scroll
+   Function: Pattern-break their feed. Create curiosity gap or shock.
+   
+2. PATTERN INTERRUPT (3-5s) — Break visual monotony
+   Function: Fast cut, location change, angle shift. Re-grab attention.
+   
+3. STORY / VALUE DELIVERY (5s to ~75% of duration) — Earn the watch
+   Function: Deliver on hook's promise. Build through 2-3 layered beats.
+   Each beat opens a mini-loop ("but here's the thing...") to hold them.
+   
+4. RETENTION LOOP (~75-90% of duration) — Engineer the save/share
+   Function: Open a NEW question right before the end. Forces save/rewatch.
+   Critical: This is what turns views into SAVES.
+   
+5. CTA (last 2-3s) — Convert
+   Function: Specific action tied to GOAL (${goal || 'engagement'}).
+   NEVER generic "follow for more". Specific value next time.
+
+═══════════════════════════════════════════════════════════
+SECTION FORMAT
+═══════════════════════════════════════════════════════════
+
+Each timestamp block uses this label structure (never add new labels, but make each label DENSE and SPECIFIC):
+
+[0-3s] HOOK · [name the hook pattern: e.g., "Shock + Specific Number" / "Confession" / "Curiosity Gap"]
+SPEAKER: (concrete character — age, wardrobe, posture, energy. Example: "Rohan, 19, oversized hoodie, sitting cross-legged on unmade bed")
+VISUAL: (DENSE — location + lighting + camera move + action. Example: "Cluttered teenage bedroom, golden hour light through half-closed blinds. Push-in from medium to close-up, slight handheld shake. He looks up suddenly from screen.")
+AUDIO: (exact words in NATIVE ${lang} + ambient sound. Example: "Bhai... yeh real hai? [pause, holds phone toward camera]" + "Faint laptop fan hum. NO music yet")
+ON-SCREEN TEXT: (specific text + animation, or "None")
+SPEAKER TONE: (delivery direction + subtext — what they MEAN beneath what they SAY)
+WHY IT WORKS: (1 sentence — explain the psychological mechanism)
+
+[3-5s] PATTERN INTERRUPT
+(Same label structure. Add a clear visual/audio break — whip-pan, cut to new location, sudden silence, dramatic angle change)
+
+[5-Xs] STORY · BEAT 1 / BEAT 2 / BEAT 3
+(Same label structure. Each beat = one new piece of value or one twist. Each beat ends with an open loop hook for next beat. Number them: BEAT 1, BEAT 2, etc.)
+
+[X-Ys] RETENTION LOOP
+(Same label structure. Open a NEW curiosity loop here — "but the biggest mistake is..." — and then CUT before resolving it. This drives saves & rewatches.)
+
+[last 2-3s] CTA · GOAL: ${goal || 'engagement'}
+(Same label structure. Tie CTA directly to the goal. Promise specific value. NEVER "follow for more". Use formats like "Tomorrow's reel: [specific topic]" or "Save this for when you need it" or "DM me '[keyword]' for the template")
+
+═══════════════════════════════════════════════════════════
+DENSITY RULES (CRITICAL)
+═══════════════════════════════════════════════════════════
+
+- VISUAL must include: location specific + lighting + camera move + action — never just "boy looks at camera"
 - SPEAKER must include character traits: age + wardrobe + posture + energy
 - AUDIO must include ambient/sound design notes alongside dialogue (silence is also a choice)
 - SPEAKER TONE must include subtext — what they MEAN beneath what they SAY
+- WHY IT WORKS must explain the psychology — not generic "this is engaging"
 - Use specific concrete details: real time of day, real wardrobe, real prop, real number — not vague placeholders
 - Each scene should feel like a real creator + DOP planned it together
 
-Use section names from this list: HOOK, SETUP, CONTEXT, BUILD, TENSION, TWIST, REVEAL, PAYOFF, RESOLUTION, CTA`;
+CRITICAL: The 5 zones (HOOK, PATTERN INTERRUPT, STORY, RETENTION LOOP, CTA) must ALL be present. This is non-negotiable. Even in a 15-second reel.`;
   }
 
   let continueSection = '';
@@ -560,7 +607,7 @@ app.post("/edit", async (req, res) => {
       model: "claude-sonnet-4-5",
       max_tokens: 6500,
       temperature: 0.9,
-      system: "You are ScriptBot, an elite content editor for Indian creators. Edit the script based on instruction. Keep ALL section headers intact (MAIN SCRIPT, HOOK QUALITY SCORE, HOOK VARIATIONS, SHOT SUGGESTIONS, CAPTION AND HASHTAGS, TRENDING AUDIO SUGGESTIONS, THUMBNAIL COVER FRAME IDEAS, GEAR AND PRODUCTION CHECKLIST, PERFORMANCE IMPROVEMENTS, EXTRA IDEAS). Keep [time] SECTION format and SPEAKER/VISUAL/AUDIO/ON-SCREEN TEXT/SPEAKER TONE labels. Avoid clichés. Ensure complete ending. Update HOOK QUALITY SCORE. CRITICAL: Maintain NATIVE language quality — Hindi/Hinglish must sound like real creator speech, not translation. Return FULL package in plain text, no emojis, no markdown.",
+      system: "You are ScriptBot, an elite content editor for Indian creators. Edit the script based on instruction. Keep ALL section headers intact (MAIN SCRIPT, HOOK QUALITY SCORE, HOOK VARIATIONS, SHOT SUGGESTIONS, CAPTION AND HASHTAGS, TRENDING AUDIO SUGGESTIONS, THUMBNAIL COVER FRAME IDEAS, GEAR AND PRODUCTION CHECKLIST, PERFORMANCE IMPROVEMENTS, EXTRA IDEAS). Keep [time] SECTION format and SPEAKER/VISUAL/AUDIO/ON-SCREEN TEXT/SPEAKER TONE/WHY IT WORKS labels. PRESERVE THE 5-ZONE VIRAL STRUCTURE: HOOK, PATTERN INTERRUPT, STORY (with BEAT 1/2/3), RETENTION LOOP, CTA. Avoid clichés. Ensure complete ending. Update HOOK QUALITY SCORE based on the edit. CRITICAL: Maintain NATIVE language quality — Hindi/Hinglish must sound like real creator speech, not translation. Maintain DENSITY in VISUAL, SPEAKER, AUDIO, SPEAKER TONE descriptions. Return FULL package in plain text, no emojis, no markdown.",
       messages: [{ role: "user", content: `Original:\n${script}\n\nInstruction: ${instruction}` }]
     });
 
@@ -578,10 +625,10 @@ app.post("/edit", async (req, res) => {
 });
 
 app.get("/", (req, res) => {
-  res.send("ScriptBot backend v4.4 (Production Density) is running!");
+  res.send("ScriptBot backend v4.5 (Viral Structure: Hook -> Interrupt -> Story -> Loop -> CTA) is running!");
 });
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, "0.0.0.0", () => {
-  console.log("ScriptBot server v4.4 (Production Density) running on port " + PORT);
+  console.log("ScriptBot server v4.5 (Viral Structure) running on port " + PORT);
 });
