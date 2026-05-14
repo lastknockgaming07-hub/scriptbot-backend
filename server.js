@@ -140,20 +140,83 @@ const LANGUAGE_GUIDES = {
 - Sound like a 22-year-old creator, not a news anchor`,
 
   Hindi: `LANGUAGE: HINDI (NATIVE — CRITICAL)
-- Write in NATURAL spoken Hindi like real creators speak — NOT formal/translated Hindi
-- Use everyday spoken words: "matlab", "yaar", "bro", "literally", "actually", "abey"
-- Avoid pure Sanskrit-Hindi or news-anchor Hindi
-- Code-switch with English where natural — Hindi creators mix English words constantly
-- Use natural exclamations: "abey!", "are bhai!", "haila!", "kya baat hai!", "uff!"
-- Match how real Mumbai/Delhi 20-something creators speak on Instagram TODAY`,
+This is NOT translated Hindi. This is how real Mumbai/Delhi creators speak on camera in 2026.
+
+PHRASES REAL CREATORS USE (insert naturally throughout dialogue):
+- Openers: "Bhai sun...", "Yaar...", "Areee...", "Suno suno...", "Ek baat batata hoon..."
+- Reactions: "Abey!", "Haila!", "Kya baat hai!", "Uff yaar!", "Bilkul mast!", "Ekdum sahi!"
+- Emphasis: "Sach mein", "Literally", "Actually", "Bilkul", "Ekdum", "Pakka"
+- Time markers: "Abhi abhi", "Kal hi", "Pichhle hafte", "Aaj subah"
+- Hesitation: "Matlab...", "Yaani...", "Dekho...", "Toh basically..."
+- Calls to attention: "Sun re bhai!", "Dhyan se suno", "Ek minute ruko"
+- Code-switch heavily: "Yeh literally insane tha", "Tumhe pata hai kitna toxic hai ye"
+
+THINGS TO AVOID (will sound translated and AI-generated):
+- "Aap" everywhere — creators use "tu/tum" more, "aap" only for elders
+- Pure formal Hindi: "Mahatvapurna", "Pradarshan", "Vyaktitva" — sounds like newspaper
+- Long Sanskrit-derived words when English equivalent works
+- Translation patterns: "It is important that" → "Yeh zaroori hai ki" sounds AI
+- Direct word-for-word translation of English phrases
+
+REAL CREATOR PATTERNS:
+- Short sentences (creators speak in 4-8 word bursts)
+- Frequent rhetorical questions to camera: "Samjhe?" "Theek hai na?" "Bolo?"
+- Filler "matlab" used like commas
+- Self-interruption: "Toh main bol raha tha ki — actually wait..."
+- Tag questions at sentence end: "...hai na?" "...samjha?" "...sahi keh raha hoon?"
+
+TEST: Read each line aloud. If it sounds like a TV news anchor or a Hindi textbook, REWRITE.
+It must sound like Carryminati, BB Ki Vines, or Mostlysane on a casual day.`,
 
   Hinglish: `LANGUAGE: HINGLISH (NATIVE — CRITICAL)
-- Hinglish is NOT translating English to Hindi. It's how urban Indians actually speak.
-- Mix English and Hindi naturally — code-switch within sentences
-- Use English words for: technical terms, modern concepts, emotional expressions
-- Use Hindi words for: emotions, family, cultural references, casual flow
-- Use GenZ Hinglish slang: "lowkey", "highkey", "literally", "deadass", "no cap", "vibe", "tea", "slay"
-- Match how creators like Kusha Kapila, Prajakta Koli, Ranveer Allahbadia ACTUALLY speak on camera`,
+Hinglish is NOT translating English to Hindi mid-sentence. It's how urban Indian creators ACTUALLY speak.
+
+THE HINGLISH FORMULA:
+- Use English for: technical terms, modern concepts, emotions, intensifiers
+- Use Hindi for: cultural connectors, family references, casual flow, exclamations
+- Code-switch WITHIN sentences, not just BETWEEN them
+
+REAL CREATOR PHRASES TO USE (study these carefully):
+- "Bhai literally main..." (literally + main)
+- "Yeh lowkey kaafi toxic hai"
+- "Honestly bata, kya tu actually karega ye?"
+- "Main was like, 'bhai are you serious?'"
+- "Yaar this is too much"
+- "Actually mujhe samajh nahi aa raha"
+- "Deadass bhai, this happened with me"
+- "Main vibe nahi kar raha is se"
+- "Tu literally relate karega"
+- "Yeh ekdum next level hai"
+
+GENZ HINGLISH SLANG (use naturally):
+- "Lowkey" / "highkey"
+- "Literally" / "deadass" / "no cap"
+- "Vibe" / "vibing" / "vibes off"
+- "Slay" / "slaying"
+- "Bestie" / "bro" / "bhai"
+- "Tea" (gossip)
+- "Hits different"
+- "Real real"
+
+REFERENCE STYLES OF REAL CREATORS:
+- Kusha Kapila: Sharp wit, English-heavy with Hindi punchlines
+- Prajakta Koli (Mostlysane): Bubbly Hinglish, lots of "literally" and "actually"
+- Ranveer Allahbadia: Hinglish with more thoughtful pauses
+- Carryminati: Aggressive Hinglish, sarcastic, "ye banda dekho" energy
+- BB Ki Vines: Family-relatable Hinglish, exaggerated reactions
+
+WRONG vs RIGHT EXAMPLES:
+WRONG (sounds translated): "Aaj main aapko ek bahut important baat batane wala hoon"
+RIGHT (sounds real): "Bhai aaj main tumhe ek baat batata hoon — yeh literally important hai"
+
+WRONG: "Yeh kaafi achchi cheez hai"
+RIGHT: "Yeh lowkey ekdum slay hai bhai"
+
+WRONG: "Main aapse ek savaal puchna chahta hoon"
+RIGHT: "Ek question hai for you guys — be honest"
+
+TEST: If you can imagine the line being said by a 24-year-old Mumbai creator with sunglasses on, it works.
+If it sounds like a Hindi news anchor or Google Translate, REWRITE.`,
 
   Tamil: `LANGUAGE: TAMIL
 - Use natural Tamil with English code-switching where common
@@ -192,9 +255,211 @@ const STRUCTURE_VARIATIONS = [
   "Observation → Curiosity → Investigation → Discovery → Closure"
 ];
 
+// ============== VIRAL HOOK TEMPLATES (proven patterns from real creators) ==============
+const HOOK_TEMPLATES = [
+  {
+    name: "The Confession",
+    pattern: "Open with admitting something controversial, shameful, or unusual you did/believe",
+    example_english: "I'm about to admit something that might cost me followers...",
+    example_hinglish: "Bhai main aaj kuch admit karne wala hoon jo shayad nahi karna chahiye...",
+    works_because: "Vulnerability + curiosity gap. Brain MUST know what you're confessing.",
+    best_for: ["storytelling", "psychology", "relationships", "comedy", "motivation"]
+  },
+  {
+    name: "Shock + Specific Number",
+    pattern: "Lead with a surprising specific number that breaks expectations",
+    example_english: "₹47,000 — that's what 30 minutes of work made me last Tuesday.",
+    example_hinglish: "47 hazaar rupaye. 30 minute ke kaam mein. Last Tuesday ki baat hai.",
+    works_because: "Specificity = credibility. Round numbers feel fake, exact numbers feel real.",
+    best_for: ["finance", "business", "tech", "fitness", "education"]
+  },
+  {
+    name: "Authority Reversal",
+    pattern: "Tell the audience that what 'everyone' or 'experts' say is wrong",
+    example_english: "Everything they told you about morning routines is wrong. Here's what actually works.",
+    example_hinglish: "Sab jo morning routine ke baare mein bolte hain — sab galat hai. Main bataata hoon kya actually kaam karta hai.",
+    works_because: "Pattern interrupt. Brain expects agreement, gets disagreement = attention.",
+    best_for: ["finance", "fitness", "education", "motivation", "psychology", "business"]
+  },
+  {
+    name: "The Curiosity Gap",
+    pattern: "Reveal you know something most people don't, hint at the value",
+    example_english: "Most people don't know this about Instagram's algorithm. I learned it the hard way.",
+    example_hinglish: "Instagram ka ek raaz hai jo 99% logon ko nahi pata. Main bhi nahi jaanta tha jab tak ye nahi hua...",
+    works_because: "Open loop in the brain — must close it by watching.",
+    best_for: ["tech", "education", "business", "psychology", "general"]
+  },
+  {
+    name: "The Specific Time/Place",
+    pattern: "Open with exact time, date, or place — feels like a real story",
+    example_english: "At 3:47 AM yesterday, my phone buzzed. The message changed everything.",
+    example_hinglish: "Subah 3:47 baje. Phone buzz hua. Jo message aaya, sab kuch badal diya.",
+    works_because: "Specificity makes fiction feel like fact. Brain leans in to find out what happens.",
+    best_for: ["storytelling", "psychology", "relationships", "comedy", "motivation"]
+  },
+  {
+    name: "The POV Shift",
+    pattern: "Put viewer inside a scene immediately — sensory, present-tense",
+    example_english: "POV: You just got off a 6-hour interview and they say 'we'll let you know'...",
+    example_hinglish: "POV: Tu 6 ghante interview de ke nikla hai. Wo bolte hain 'hum aapko batayenge'. Tu samajh jata hai...",
+    works_because: "Immediate immersion. No setup needed.",
+    best_for: ["comedy", "relationships", "education", "storytelling", "general"]
+  },
+  {
+    name: "The Cost Confession",
+    pattern: "Reveal how much money/time you wasted before learning the lesson",
+    example_english: "I wasted ₹2 lakhs on this mistake. Don't make the same one.",
+    example_hinglish: "Main ne 2 lakh rupaye ek galti par phenk diye. Tum mat karna ye galti.",
+    works_because: "Loss aversion + free education. Viewer wants to avoid your pain.",
+    best_for: ["finance", "business", "education", "tech"]
+  },
+  {
+    name: "The Question Hook",
+    pattern: "Ask a question that EVERY viewer in your niche has wondered about",
+    example_english: "Why do some Reels get 1M views while yours get 100? It's not luck.",
+    example_hinglish: "Kuch reels 1 million views kaise paati hain aur tumhari 100? Luck nahi hai bhai.",
+    works_because: "Reader's own internal voice already wanted this answer.",
+    best_for: ["education", "business", "tech", "general"]
+  },
+  {
+    name: "The Before/After Tease",
+    pattern: "Show or describe a dramatic transformation, then promise the how",
+    example_english: "Same person. 90 days apart. One habit changed everything.",
+    example_hinglish: "Same banda. 90 din ka fark. Ek aadat ne sab badal diya.",
+    works_because: "Transformation is the oldest viral pattern. Brain craves the secret.",
+    best_for: ["fitness", "motivation", "finance", "education", "business"]
+  },
+  {
+    name: "The Bold Claim",
+    pattern: "Make a controversial or extreme claim, then back it up",
+    example_english: "If you're 25 and still saving in FD, you'll never be rich. Here's why.",
+    example_hinglish: "Agar tu 25 saal ka hai aur ab tak FD mein paise rakh raha hai, tu kabhi ameer nahi banega. Suno kyun.",
+    works_because: "Bold claim = polarized reaction = comments = algorithm boost.",
+    best_for: ["finance", "business", "motivation", "psychology"]
+  },
+  {
+    name: "The Story Cold Open",
+    pattern: "Start mid-action, mid-conversation, mid-scene — no setup",
+    example_english: "She slammed the door so hard the photo frame fell. I knew it was over.",
+    example_hinglish: "Itni zor se darwaza band kiya ki photo frame gir gaya. Main samajh gaya, khatam.",
+    works_because: "In medias res. Brain MUST find context — keeps watching.",
+    best_for: ["storytelling", "comedy", "relationships", "psychology"]
+  },
+  {
+    name: "The Pattern Break",
+    pattern: "Visual or audio that contradicts what the niche normally looks like",
+    example_english: "[Sitting in pajamas at 2 PM] Today I made more than your salary. Here's how.",
+    example_hinglish: "[Pajame mein, 2 baje afternoon] Aaj main ne tumhari salary se zyada kamaya. Suno kaise.",
+    works_because: "Visual mismatch with topic = brain pauses to reconcile.",
+    best_for: ["finance", "business", "comedy", "general"]
+  },
+  {
+    name: "The Insider Reveal",
+    pattern: "Position yourself as the insider sharing what 'they' don't tell you",
+    example_english: "I worked at [industry] for 5 years. Here's the dirty truth no one tells you.",
+    example_hinglish: "Main ne [industry] mein 5 saal kaam kiya. Ek baat batata hoon jo koi nahi bolega.",
+    works_because: "Insider knowledge = forbidden fruit. Audience feels special.",
+    best_for: ["business", "tech", "finance", "education", "fashion"]
+  },
+  {
+    name: "The Daily Detail",
+    pattern: "Mundane specific detail that pulls into intimate moment",
+    example_english: "I was eating my third Maggi of the week when I realized something brutal.",
+    example_hinglish: "Hafte ki teesri Maggi kha raha tha jab ek baat samajh aayi — bahut zyada.",
+    works_because: "Specific mundane detail = relatable = identification with creator.",
+    best_for: ["comedy", "relationships", "motivation", "storytelling"]
+  },
+  {
+    name: "The Comparison Shock",
+    pattern: "Compare two things audience didn't realize were comparable",
+    example_english: "Your Netflix subscription costs more per year than this investment that would have made you ₹1 lakh.",
+    example_hinglish: "Tumhari Netflix subscription saal ka jitna paisa lagta hai, utna mein investment hota toh aaj 1 lakh hota.",
+    works_because: "Reframing forces re-evaluation of small decisions.",
+    best_for: ["finance", "business", "education", "psychology"]
+  },
+  {
+    name: "The Direct Address Challenge",
+    pattern: "Speak directly to a specific viewer type — they feel called out",
+    example_english: "If you're between 22 and 28 and feel stuck, this is for you. Pay attention.",
+    example_hinglish: "Agar tu 22 se 28 ke beech mein hai aur stuck feel kar raha hai — ye tere liye hai. Dhyan se sun.",
+    works_because: "Targeted address = brain says 'wait, that's ME'.",
+    best_for: ["motivation", "education", "business", "psychology", "general"]
+  },
+  {
+    name: "The Mistake Reveal",
+    pattern: "Open by naming the mistake everyone makes — viewer wonders if they do it too",
+    example_english: "There's one mistake almost everyone makes when they start [X]. I made it too.",
+    example_hinglish: "Ek galti hai jo 90% log [X] start karte time karte hain. Main ne bhi ki thi.",
+    works_because: "Self-doubt + curiosity. Viewer must check if they're guilty.",
+    best_for: ["education", "finance", "business", "fitness", "tech"]
+  },
+  {
+    name: "The Stat Bomb",
+    pattern: "Lead with surprising statistic that makes audience question reality",
+    example_english: "92% of Indian creators making over ₹1 lakh/month do this one thing. The rest don't.",
+    example_hinglish: "92% Indian creators jo 1 lakh ya zyada kamate hain — sab ek hi cheez karte hain. Baaki nahi karte.",
+    works_because: "Stat = social proof. Specificity = credibility. Curiosity = watch.",
+    best_for: ["business", "finance", "education", "tech"]
+  },
+  {
+    name: "The Vulnerable Failure",
+    pattern: "Open with personal failure or rock-bottom moment",
+    example_english: "Last December I had ₹247 in my bank account. I was 26.",
+    example_hinglish: "Last December meri account mein 247 rupaye thay. Main 26 saal ka tha.",
+    works_because: "Vulnerability creates instant connection. Audience wants the comeback story.",
+    best_for: ["motivation", "finance", "business", "storytelling"]
+  },
+  {
+    name: "The Behavior Decode",
+    pattern: "Decode behavior the audience has noticed but never understood",
+    example_english: "Notice how successful people always do this thing? It's not coincidence.",
+    example_hinglish: "Successful log hamesha ye ek cheez karte hain — notice kiya? Coincidence nahi hai.",
+    works_because: "Pattern recognition + insider knowledge promise.",
+    best_for: ["psychology", "business", "motivation", "education"]
+  }
+];
+
+// ============== SPECIFICITY RULES (force concrete language) ==============
+const SPECIFICITY_RULES = `
+CONCRETE LANGUAGE RULES (NON-NEGOTIABLE):
+
+VAGUE WORDS BANNED — replace each with specifics:
+- "many people" → "8 out of 10 creators I've worked with"
+- "a lot of money" → "₹47,000 in 30 days" (specific number)
+- "some time ago" → "last Tuesday at 3 PM" (specific moment)
+- "easily" / "quickly" / "simply" → describe HOW exactly
+- "experts say" → name specific expert OR cite specific study
+- "studies show" → too vague, name the study or skip
+- "it's amazing" / "it's terrible" → describe specifically WHAT makes it so
+- "things changed" → describe specific changes
+
+EVERY CLAIM MUST INCLUDE ONE OF:
+- A specific number (₹47,000 not "lot of money")
+- A specific name (real person, brand, product, place)
+- A specific time (last Tuesday, 3:47 AM, 2019 winter)
+- A specific sensory detail (smell, sound, texture, color)
+
+EXAMPLES — WRONG vs RIGHT:
+WRONG: "Many people struggle with money in their 20s"
+RIGHT: "I had ₹312 in my account at 24. So did 4 of my closest friends."
+
+WRONG: "Morning routines can change your life"
+RIGHT: "I started waking at 5:23 AM (not 5:30 — psychological trick). 90 days later I had launched two products."
+
+WRONG: "The food was great"
+RIGHT: "The biryani at Paradise costs ₹340 and has a slight peppercorn finish you only notice on the third bite."
+
+PUNISHMENT FOR VAGUENESS:
+If your output contains 3 or more vague phrases from the banned list, lower the HOOK QUALITY SCORE by 20 points and rewrite those lines with specifics.`;
+
 function pickRandom(arr, count = 1) {
   const shuffled = [...arr].sort(() => Math.random() - 0.5);
   return count === 1 ? shuffled[0] : shuffled.slice(0, count);
+}
+
+function pickHookForNiche(niche) {
+  const fitting = HOOK_TEMPLATES.filter(h => h.best_for.includes(niche) || h.best_for.includes('general'));
+  return pickRandom(fitting.length ? fitting : HOOK_TEMPLATES);
 }
 
 function buildSystemPrompt(opts, versionLabel = 'A') {
@@ -205,6 +470,17 @@ function buildSystemPrompt(opts, versionLabel = 'A') {
   const langGuide = LANGUAGE_GUIDES[lang] || LANGUAGE_GUIDES.English;
   const randomSeeds = pickRandom(CREATIVE_SEEDS, 5);
   const randomStructure = pickRandom(STRUCTURE_VARIATIONS);
+
+  // Pick hook templates — different ones for Version A vs B for variety
+  const hookForA = pickHookForNiche(niche);
+  let hookForB = pickHookForNiche(niche);
+  // Ensure B uses a DIFFERENT hook pattern from A
+  let attempts = 0;
+  while (hookForB.name === hookForA.name && attempts < 10) {
+    hookForB = pickHookForNiche(niche);
+    attempts++;
+  }
+  const selectedHook = versionLabel === 'B' ? hookForB : hookForA;
 
   let modeSection = '';
   if (mode === 'single') {
@@ -396,6 +672,30 @@ ${modeSection}
 ${continueSection}
 
 ${speakerSection}
+
+============================================
+HOOK STRATEGY (CRITICAL — USE THIS PATTERN)
+============================================
+For THIS script, use the "${selectedHook.name}" hook pattern.
+
+Pattern: ${selectedHook.pattern}
+Why it works: ${selectedHook.works_because}
+Example in English: ${selectedHook.example_english}
+Example in Hinglish: ${selectedHook.example_hinglish}
+
+YOUR HOOK MUST:
+- Follow this exact PATTERN (not the example word-for-word — same psychological mechanism)
+- Adapt to the topic: ${opts.topic || '(see user message)'}
+- Match the niche (${niche}) and language (${lang})
+- Open the script in 0-3 seconds with this hook style
+
+In the OUTPUT, label your HOOK section with the pattern name like:
+"[0-3s] HOOK · ${selectedHook.name}"
+
+This is how real creators design hooks — they pick a proven pattern and adapt it. Generic "interesting opening" hooks fail. PROVEN PATTERNS win.
+============================================
+
+${SPECIFICITY_RULES}
 
 ${nicheSection}
 
@@ -625,10 +925,10 @@ app.post("/edit", async (req, res) => {
 });
 
 app.get("/", (req, res) => {
-  res.send("ScriptBot backend v4.5 (Viral Structure: Hook -> Interrupt -> Story -> Loop -> CTA) is running!");
+  res.send("ScriptBot backend v4.6 (Quality Overhaul: 20 Hook Templates + Specificity Rules + Native Speech) is running!");
 });
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, "0.0.0.0", () => {
-  console.log("ScriptBot server v4.5 (Viral Structure) running on port " + PORT);
+  console.log("ScriptBot server v4.6 (Quality Overhaul) running on port " + PORT);
 });
