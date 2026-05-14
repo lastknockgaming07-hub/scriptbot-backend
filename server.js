@@ -621,7 +621,8 @@ Each timestamp block uses this label structure (never add new labels, but make e
 [0-3s] HOOK · [name the hook pattern: e.g., "Shock + Specific Number" / "Confession" / "Curiosity Gap"]
 SPEAKER: (concrete character — age, wardrobe, posture, energy. Example: "Rohan, 19, oversized hoodie, sitting cross-legged on unmade bed")
 VISUAL: (DENSE — location + lighting + camera move + action. Example: "Cluttered teenage bedroom, golden hour light through half-closed blinds. Push-in from medium to close-up, slight handheld shake. He looks up suddenly from screen.")
-AUDIO: (exact words in NATIVE ${lang} + ambient sound. Example: "Bhai... yeh real hai? [pause, holds phone toward camera]" + "Faint laptop fan hum. NO music yet")
+DIALOGUE: (exact words the creator SPEAKS, in NATIVE ${lang}, wrapped in quotes. Example: "Bhai... yeh real hai?" — Just the spoken words. Nothing else. NEVER sound design here.)
+AUDIO: (ambient sound + sound effects + music notes — NOT dialogue. Example: "Faint laptop fan hum. NO music yet. Sound effect: subtle paper rustle at 1.5s mark")
 ON-SCREEN TEXT: (specific text + animation, or "None")
 SPEAKER TONE: (delivery direction + subtext — what they MEAN beneath what they SAY)
 WHY IT WORKS: (1 sentence — explain the psychological mechanism)
@@ -642,13 +643,21 @@ WHY IT WORKS: (1 sentence — explain the psychological mechanism)
 DENSITY RULES (CRITICAL)
 ═══════════════════════════════════════════════════════════
 
+- DIALOGUE is what the creator SAYS — the spoken words only, in quotes, in native language. This is what they will perform.
+- AUDIO is the sound DESIGN — ambient noise, sound effects, music cues. NOT spoken words.
 - VISUAL must include: location specific + lighting + camera move + action — never just "boy looks at camera"
 - SPEAKER must include character traits: age + wardrobe + posture + energy
-- AUDIO must include ambient/sound design notes alongside dialogue (silence is also a choice)
 - SPEAKER TONE must include subtext — what they MEAN beneath what they SAY
 - WHY IT WORKS must explain the psychology — not generic "this is engaging"
 - Use specific concrete details: real time of day, real wardrobe, real prop, real number — not vague placeholders
 - Each scene should feel like a real creator + DOP planned it together
+
+CRITICAL DIALOGUE RULES:
+- DIALOGUE field is the most important field for the creator — they will MEMORIZE these lines
+- Keep dialogue concise, punchy, performable in the allocated time
+- Use SHORT sentences creators can actually deliver in seconds
+- Match the creator voice style and language exactly
+- One thought per dialogue line — easier to perform
 
 CRITICAL: The 5 zones (HOOK, PATTERN INTERRUPT, STORY, RETENTION LOOP, CTA) must ALL be present. This is non-negotiable. Even in a 15-second reel.`;
   }
@@ -907,7 +916,7 @@ app.post("/edit", async (req, res) => {
       model: "claude-sonnet-4-5",
       max_tokens: 6500,
       temperature: 0.9,
-      system: "You are ScriptBot, an elite content editor for Indian creators. Edit the script based on instruction. Keep ALL section headers intact (MAIN SCRIPT, HOOK QUALITY SCORE, HOOK VARIATIONS, SHOT SUGGESTIONS, CAPTION AND HASHTAGS, TRENDING AUDIO SUGGESTIONS, THUMBNAIL COVER FRAME IDEAS, GEAR AND PRODUCTION CHECKLIST, PERFORMANCE IMPROVEMENTS, EXTRA IDEAS). Keep [time] SECTION format and SPEAKER/VISUAL/AUDIO/ON-SCREEN TEXT/SPEAKER TONE/WHY IT WORKS labels. PRESERVE THE 5-ZONE VIRAL STRUCTURE: HOOK, PATTERN INTERRUPT, STORY (with BEAT 1/2/3), RETENTION LOOP, CTA. Avoid clichés. Ensure complete ending. Update HOOK QUALITY SCORE based on the edit. CRITICAL: Maintain NATIVE language quality — Hindi/Hinglish must sound like real creator speech, not translation. Maintain DENSITY in VISUAL, SPEAKER, AUDIO, SPEAKER TONE descriptions. Return FULL package in plain text, no emojis, no markdown.",
+      system: "You are ScriptBot, an elite content editor for Indian creators. Edit the script based on instruction. Keep ALL section headers intact (MAIN SCRIPT, HOOK QUALITY SCORE, HOOK VARIATIONS, SHOT SUGGESTIONS, CAPTION AND HASHTAGS, TRENDING AUDIO SUGGESTIONS, THUMBNAIL COVER FRAME IDEAS, GEAR AND PRODUCTION CHECKLIST, PERFORMANCE IMPROVEMENTS, EXTRA IDEAS). Keep [time] SECTION format and SPEAKER/VISUAL/DIALOGUE/AUDIO/ON-SCREEN TEXT/SPEAKER TONE/WHY IT WORKS labels. CRITICAL: DIALOGUE field is for the spoken words only (in quotes), AUDIO field is for sound design only (NOT dialogue). Keep them separate. PRESERVE THE 5-ZONE VIRAL STRUCTURE: HOOK, PATTERN INTERRUPT, STORY (with BEAT 1/2/3), RETENTION LOOP, CTA. Avoid clichés. Ensure complete ending. Update HOOK QUALITY SCORE based on the edit. CRITICAL: Maintain NATIVE language quality — Hindi/Hinglish must sound like real creator speech, not translation. Maintain DENSITY in VISUAL, SPEAKER, AUDIO, SPEAKER TONE descriptions. Return FULL package in plain text, no emojis, no markdown.",
       messages: [{ role: "user", content: `Original:\n${script}\n\nInstruction: ${instruction}` }]
     });
 
@@ -925,10 +934,10 @@ app.post("/edit", async (req, res) => {
 });
 
 app.get("/", (req, res) => {
-  res.send("ScriptBot backend v4.6 (Quality Overhaul: 20 Hook Templates + Specificity Rules + Native Speech) is running!");
+  res.send("ScriptBot backend v4.7 (Clear Dialogue Separation) is running!");
 });
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, "0.0.0.0", () => {
-  console.log("ScriptBot server v4.6 (Quality Overhaul) running on port " + PORT);
+  console.log("ScriptBot server v4.7 (Clear Dialogue) running on port " + PORT);
 });
